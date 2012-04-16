@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="span12">
+    <h1>Hey <%= @conducer.attributes.user_name %> -- Please Choose a Role!</h1>
+  </div>
+</div>
+<%= dao_form_for @conducer , :class => "form-horizontal" do | form | %>
+  <div class="row form-row">
+    <div class="span2">
+      <div class="pull-right">
+        <%= form.label( :role ){ "Available Roles" } %>
+      </div>
+    </div>
+    <div class="span10">
+      <div class="well">
+        <%= form.select( :role , :options => @conducer.available_user_roles ) %>
+      </div>
+    </div>
+  </div>
+  <div class="row form-row">
+    <div class="span12">
+      <div class="pull-right">
+        <%= form.submit "Save & Continue" , :class => "btn btn-large btn-success" %>
+      </div>
+    </div>
+  </div>
+<% end %>

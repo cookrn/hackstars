@@ -1,0 +1,25 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <li>
+          <a class="brand" href="/">Hackstars</a>
+        </li>
+      </ul> <!-- ul.nav -->
+      <ul class="nav pull-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="<%= current_user.image_url %>" width="30" height="30" />
+            <%= current_user.user_name %>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/auth/logout">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul> <!-- ul.nav.pull-right -->
+    </div> <!-- div.container -->
+  </div> <!-- div.navbar-inner -->
+</div> <!-- div.navbar.navbar-fixed-top -->
