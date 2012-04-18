@@ -3,7 +3,7 @@ Hackstars::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      match "lists/:remote_action" => "lists#remote" , :as => :remote_list
+      match "list/:remote_action" => "lists#remote" , :as => :remote_list
     end
   end
 

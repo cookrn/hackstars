@@ -1,4 +1,8 @@
-<h1>hi</h1>
+<% if current_user.has_synced? %>
+  <h1>hi</h1>
+<% else %>
+  <%= render "first_sync" %>
+<% end %>
 <%= content_for :page_javascript do %>
   <%= javascript_tag do %>
     $( function(){

@@ -9,17 +9,4 @@ Hackstars =
 
   registerPage: ( page , o ) -> @pages[ page ] = o
 
-Hackstars.Helpers =
-  apiUrlFor: ( resource , action ) -> "#{ Hackstars.api_namespace }/#{ resource }/#{ action }"
-
-  getUrlParameterByName: ( name ) ->
-    name    = name.replace( /[\[]/ , "\\\[" ).replace /[\]]/ , "\\\]"
-    regexS  = "[\\?&]" + name + "=([^&#]*)"
-    regex   = new RegExp( regexS )
-    results = regex.exec window.location.search
-    if results is null
-      ""
-    else
-      decodeURIComponent results[ 1 ].replace /\+/g , " "
-
 window.Hackstars = Hackstars

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="span12">
+    <h1>Hi <%= current_user.user_name %>!</h1>
+  </div>
+</div>
+<div class="row padded-row">
+  <div class="span12">
+    <p class="first-sync-callout">It looks like you haven't synced your account with twitter yet. Click the huge button below to start:</p>
+  </div>
+</div>
+<div class="row btn-row">
+  <div class="span12">
+    <%= link_to \
+          "Sync me up with ALL the HackStars!",
+          "#",
+          :id    => "first-sync-btn",
+          :class => "btn btn-large btn-success" %>
+  </div>
+</div>
+<div class="row padded-row">
+  <div class="span12">
+    <div class="well">
+      <p>What, in fact does this button do? Well, a few things...</p>
+      <ul>
+        <li>It creates a "HackStars" list for you on Twitter if you don't already have one</li>
+        <li>It totally wipes out and destroys-with-fire any list you might have already created called "HackStars" (case doesn't matter)</li>
+        <li>It syncs all the users of this app to be members of your list so that all users of the app share the same "HackStars" list</li>
+      </ul>
+      <p class="first-sync-callout warning">The moral of the story is, if you already have a list called "HackStars", it will get punked.</p>
+    </div>
+  </div>
+</div>
