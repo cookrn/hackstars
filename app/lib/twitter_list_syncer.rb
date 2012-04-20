@@ -22,6 +22,15 @@ class TwitterListSyncer
   end
 
   def sync!
-    # FIXME
+    paginated_list_users = Kaminari.paginate_array list_users.to_a , :limit => 100
+    page = 1
+    list = nil
+    while !paginated_list_users.empty?
+      list_user_names = paginated_list_users.map { | list_user | list_user.user_name }
+      list = twitter_client.list_add_members user.user_name , list[ "slug" ] , list_user_names
+      page += 1
+      paginated_list_users = paginated_list_users.page page
+    end
+    list
   end
 end

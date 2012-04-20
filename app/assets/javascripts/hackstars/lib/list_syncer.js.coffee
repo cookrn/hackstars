@@ -1,7 +1,7 @@
 class ListConstructor
   construct: ->
     request = $.post Hackstars.Helpers.apiUrlFor( 'list' , 'sync' )
-    request.complete ->
+    request.success ->
       alert 'done'
 
 window.ListConstructor = ListConstructor

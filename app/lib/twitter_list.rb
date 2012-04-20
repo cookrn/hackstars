@@ -1,9 +1,13 @@
-class TwitterListConstructor
+class TwitterList
   attr_reader :list , :list_name , :options , :twitter_client , :user
 
-  def self.construct!( *args )
-    constructor = new *args
-    constructor.construct!
+  def self.find( *args )
+    list = new *args
+    list.load
+  end
+
+  def self.load( *args )
+    find *args
   end
 
   def initialize( *args )
@@ -14,27 +18,17 @@ class TwitterListConstructor
     prepare_twitter!
   end
 
-  def create_list
-    @twitter_client.list_create list_name
+  def load
+    @list ||= @twitter_client.list normalize_list_name( list_name )
   end
 
-  def fetch_list
-    TwitterList.find \
-      :list_name => list_name,
-      :user      => user
+  def normalize_list_name( name )
+    name.to_s.downcase
   end
 
   def prepare_twitter!
     @twitter_client ||= Twitter::Client.new \
       :oauth_token        => user.twitter_oauth_token,
       :oauth_token_secret => user.twitter_oauth_token_secret
-  end
-
-  def construct!
-    @list ||= begin
-                fetch_list
-              rescue
-                create_list
-              end
   end
 end

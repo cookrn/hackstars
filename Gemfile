@@ -3,6 +3,7 @@ source :rubygems
 gem "bson_ext"         , "1.6.2"
 gem "dao"              , :git => "git://github.com/ahoward/dao.git"
 gem "ffi-uuid"         , "0.1.3"
+gem "kaminari"         , "0.13.0"
 gem "mongoid"          , "2.4.8"
 gem "omniauth"         , "1.1.0"
 gem "omniauth-twitter" , "0.0.9"
